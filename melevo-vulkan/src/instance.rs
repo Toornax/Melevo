@@ -3,21 +3,41 @@ use std::{ffi::{CStr, CString}, ptr, sync::Arc};
 use winit::{raw_window_handle_05::HasRawDisplayHandle, raw_window_handle::HasDisplayHandle};
 use crate::{utils::ToVulkanVersion, VALIDATION_LAYERS};
 
-
 pub struct Instance {
-	_entry: ash::Entry,
-	internal: ash::Instance,
+	inner: Arc<InstanceInner>,
 }
 
 impl Instance {
 	pub fn builder() -> InstanceBuilder {
 		InstanceBuilder::default()
 	}
+
+	pub fn entry(&self) -> &ash::Entry {
+		&self.inner.entry
+	}
+
+	pub fn inner(&self) -> &ash::Instance {
+		&self.inner.vk_instance 
+	}
 }
 
-impl Drop for Instance {
+impl Clone for Instance {
+	fn clone(&self) -> Self {
+		Instance {
+			inner: self.inner.clone(),
+		}
+	}
+}
+
+
+struct InstanceInner {
+	pub entry: ash::Entry,
+	pub vk_instance: ash::Instance,
+}
+
+impl Drop for InstanceInner {
 	fn drop(&mut self) {
-		unsafe { self.internal.destroy_instance(None) };
+		unsafe { self.vk_instance.destroy_instance(None) };
 	}
 }
 
@@ -38,6 +58,7 @@ struct InstanceCreateInfo {
 	pub flags: ash::vk::InstanceCreateFlags,
 }
 
+
 #[derive(Debug, Default)]
 pub struct InstanceBuilder {
 	application_info: ApplicationInfo,
@@ -45,7 +66,7 @@ pub struct InstanceBuilder {
 }
 
 impl InstanceBuilder {
-	pub fn create(self) -> Arc<Instance> {		
+	pub fn create(self) -> Instance {
 		let app_name = CString::new(self.application_info.application_name).expect("invalid application name");
 		let engine_name = CString::new(self.application_info.engine_name).expect("invalid engine name");
 
@@ -93,14 +114,16 @@ impl InstanceBuilder {
 		};
 
 		let entry = unsafe { ash::Entry::load().expect("cannot load vulkan library") };
-		let instance = unsafe { entry.create_instance(&inst_create_info, None).expect("instance creation error") };
+		let vk_instance = unsafe { entry.create_instance(&inst_create_info, None).expect("instance creation error") };
 
-		let instance = Instance {
-			_entry: entry,
-			internal: instance,
+		let inner = InstanceInner {
+			entry: entry,
+			vk_instance,
 		};
 
-		Arc::new(instance)
+		Instance {
+			inner: Arc::new(inner)
+		}
 	}
 
 	pub fn set_app_name(mut self, app_name: String) -> Self {
