@@ -8,3 +8,4 @@ name = "ecs"
 path = "src/lib.rs"
 
 [dependencies]
+melevo-utils = { path = "../melevo-utils" }

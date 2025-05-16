@@ -1,6 +1,6 @@
 use std::{any::TypeId, collections::HashSet};
 
-use crate::ecs::{Component, ComponentPool, Entity, World};
+use crate::{Component, ComponentPool, Entity, World};
 use super::QueryIter;
 
 pub trait QueryParam: Sized { 

@@ -1,6 +1,6 @@
 use std::{any::TypeId, collections::HashSet};
 
-use crate::ecs::{query::{Query, QueryParamList}, World};
+use crate::{query::{Query, QueryParamList}, World};
 
 enum ScheduleType {
 	PreStartup,

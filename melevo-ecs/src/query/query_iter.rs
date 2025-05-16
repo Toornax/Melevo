@@ -1,6 +1,6 @@
 use std::{marker::PhantomData, slice::Iter};
 
-use crate::ecs::{ComponentPool, Entity};
+use crate::{ComponentPool, Entity};
 
 use super::QueryParamList;
 

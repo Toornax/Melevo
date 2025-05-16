@@ -1,4 +1,4 @@
-use crate::utils::sparse_set::{InvalidKeyError, InvalidKeyErrorKind, Key};
+use utils::sparse_set::{InvalidKeyError, InvalidKeyErrorKind, Key};
 
 
 #[derive(Debug, Clone, Copy)]
@@ -25,7 +25,7 @@ impl Entity {
 }
 
 impl Key for Entity {
-	fn into_usize(self) -> Result<usize, crate::utils::sparse_set::InvalidKeyError<Self>> {
+	fn into_usize(self) -> Result<usize, utils::sparse_set::InvalidKeyError<Self>> {
 		self.id().try_into().map_err(|_| InvalidKeyError { kind: InvalidKeyErrorKind::KeyCantBeCastToUsize })
 	}
 }

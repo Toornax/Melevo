@@ -2,15 +2,14 @@ use std::{
 	any::{self, TypeId}, cell::RefCell, collections::HashMap
 };
 
+use utils::SparseSet;
+
 use crate::{
-	ecs::{
-		Component,
-		ComponentPool, 
-		Entity,
-		Query,
-		query::QueryParamList
-	}, 
-	utils::SparseSet
+	Component,
+	ComponentPool, 
+	Entity,
+	Query,
+	query::QueryParamList
 };
 
 

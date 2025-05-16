@@ -1,8 +1,8 @@
 use std::any::Any;
 use std::cell::{Ref, RefMut, RefCell};
 
-use crate::utils::SparseSet;
-use crate::ecs::{
+use utils::SparseSet;
+use crate::{
 	Component,
 	Entity
 };
