@@ -8,5 +8,6 @@ name = "core"
 path = "src/lib.rs"
 
 [dependencies]
+melevo-render = { path = "../melevo-render" }
 log.workspace = true
 winit.workspace = true

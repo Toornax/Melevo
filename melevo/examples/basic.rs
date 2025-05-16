@@ -1,4 +1,4 @@
-use melevo::{ecs::World, Melevo};
+use melevo::Melevo;
 use simple_logger::SimpleLogger;
 
 

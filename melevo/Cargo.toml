@@ -9,6 +9,7 @@ melevo-ecs = { path = "../melevo-ecs" }
 melevo-physic = { path = "../melevo-physic" }
 melevo-render = { path = "../melevo-render" }
 melevo-vulkan = { path = "../melevo-vulkan" }
+simple_logger = "5.0.0"
 
 [lib]
 name = "melevo"
