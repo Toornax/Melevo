@@ -1,0 +1,12 @@
+[package]
+name = "melevo-core"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "melevo_core"
+path = "src/lib.rs"
+
+[dependencies]
+log.workspace = true
+winit.workspace = true

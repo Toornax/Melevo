@@ -1,0 +1,18 @@
+[package]
+name = "melevo"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+melevo-core = { path = "../melevo-core" }
+melevo-ecs = { path = "../melevo-ecs" }
+melevo-physic = { path = "../melevo-physic" }
+melevo-render = { path = "../melevo-render" }
+melevo-vulkan = { path = "../melevo-vulkan" }
+
+[lib]
+name = "melevo"
+path = "src/lib.rs"
+
+[[example]]
+name = "basic"

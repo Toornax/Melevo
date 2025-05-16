@@ -1,0 +1,10 @@
+[package]
+name = "melevo-vulkan"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "melevo_vulkan"
+path = "src/lib.rs"
+
+[dependencies]

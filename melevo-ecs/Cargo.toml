@@ -1,0 +1,10 @@
+[package]
+name = "melevo-ecs"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "melevo_ecs"
+path = "src/lib.rs"
+
+[dependencies]

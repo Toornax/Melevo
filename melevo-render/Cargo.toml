@@ -1,0 +1,10 @@
+[package]
+name = "melevo-render"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "melevo_render"
+path = "src/lib.rs"
+
+[dependencies]
