@@ -8,3 +8,8 @@ name = "vk"
 path = "src/lib.rs"
 
 [dependencies]
+ash = {version = "0.38", features = ["loaded", "debug", "std"] }
+ash-window = "0.13.0"
+melevo-utils = { path = "../melevo-utils" }
+versions.workspace = true
+winit.workspace = true

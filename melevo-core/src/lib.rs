@@ -1,4 +1,3 @@
+mod application;
 pub use application::Melevo;
 
-
-mod application;
