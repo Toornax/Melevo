@@ -1,6 +1,8 @@
 pub use instance::Instance;
+pub use surface::Surface;
 
 mod instance;
+mod surface;
 mod utils;
 
 const VALIDATION_LAYERS: &[&str] = &[

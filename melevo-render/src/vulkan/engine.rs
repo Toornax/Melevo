@@ -4,7 +4,7 @@ use utils::Version;
 use winit::{raw_window_handle_05::HasRawDisplayHandle, raw_window_handle::HasDisplayHandle, window::Window};
 
 pub struct Engine {
-	instance: Arc<vk::Instance>,
+	instance: vk::Instance,
 }
 
 impl Engine {
@@ -17,6 +17,8 @@ impl Engine {
 			.require_api_version(vk::version::V1_4)
 			.enable_surface_extensions(event_loop)
 			.create();
+
+		let surface = vk::Surface::create(&instance);
 
 		Self {
 			instance,
