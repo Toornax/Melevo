@@ -6,7 +6,7 @@ use crate::{utils::ToVulkanVersion, VALIDATION_LAYERS};
 
 pub struct Instance {
 	_entry: ash::Entry,
-	handle: ash::Instance,
+	internal: ash::Instance,
 }
 
 impl Instance {
@@ -17,7 +17,7 @@ impl Instance {
 
 impl Drop for Instance {
 	fn drop(&mut self) {
-		unsafe { self.handle.destroy_instance(None) };
+		unsafe { self.internal.destroy_instance(None) };
 	}
 }
 
@@ -97,7 +97,7 @@ impl InstanceBuilder {
 
 		let instance = Instance {
 			_entry: entry,
-			handle: instance,
+			internal: instance,
 		};
 
 		Arc::new(instance)
