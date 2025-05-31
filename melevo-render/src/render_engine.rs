@@ -9,7 +9,7 @@ pub struct RenderEngine {
 
 impl RenderEngine {
 	pub fn init(event_loop: &(impl HasDisplayHandle + HasRawDisplayHandle), window: Arc<Window>) -> Self {
-		let engine = vkr::Engine::init(event_loop, window);
+		let engine = vkr::Engine::init(event_loop, window).expect("cannot initialize render engine");
 
 		Self { 
 			engine,

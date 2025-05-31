@@ -10,5 +10,6 @@ path = "src/lib.rs"
 [dependencies]
 melevo-utils = { path = "../melevo-utils" }
 melevo-vulkan = { path = "../melevo-vulkan" }
+log.workspace = true
 winit.workspace = true
 versions.workspace = true
