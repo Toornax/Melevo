@@ -42,3 +42,11 @@ struct ImageViewInner {
 	handle: ash::vk::ImageView,
 	_image_inner: Arc<ImageInner>, // Keep a reference to the image to ensure it is not dropped while the view exists
 }
+
+impl Drop for ImageViewInner {
+	fn drop(&mut self) {
+		unsafe {
+			self._image_inner.device.handle().destroy_image_view(self.handle, None);
+		}
+	}
+}
