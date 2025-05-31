@@ -10,6 +10,9 @@ path = "src/lib.rs"
 [dependencies]
 ash = {version = "0.38", features = ["loaded", "debug", "std"] }
 ash-window = "0.13.0"
+bitflags = "2.9.1"
 melevo-utils = { path = "../melevo-utils" }
+melevo-macro ={ path = "../melevo-macro" }
+log.workspace = true
 versions.workspace = true
 winit.workspace = true
