@@ -2,9 +2,11 @@
 members = [
 	"melevo",
 	"melevo-core",
-	"melevo-ecs",
+	"melevo-ecs", 
+	"melevo-macro",
 	"melevo-physic",
-	"melevo-render", "melevo-utils",
+	"melevo-render", 
+	"melevo-utils",
 	"melevo-vulkan",
 ]
 
